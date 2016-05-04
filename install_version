@@ -1,0 +1,26 @@
+#Lista Versoes do Cache
+sudo apt-cache madison docker-engine
+
+docker-engine | 1.11.1-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.11.0-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.10.3-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.10.2-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.10.1-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.10.0-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.9.1-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.9.0-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.8.3-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.8.2-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.8.1-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.8.0-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.7.1-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.6.2-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.6.1-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.6.0-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+docker-engine | 1.5.0-0~wily | https://apt.dockerproject.org/repo/ ubuntu-wily/main amd64 Packages
+
+#Apos ver a versao que deseja instalar do docker execute
+sudo apt-get install docker-engine=<versão>
+
+-No meu caso quero a versao 1.10.3
+sudo apt-get install docker-engine=1.10.3-0~wily
