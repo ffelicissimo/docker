@@ -1,0 +1,58 @@
+1 - Update package information, ensure that APT works with the https method, and that CA certificates are installed.
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https ca-certificates
+
+2 - Add the new GPG key.
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+3 - Open the /etc/apt/sources.list.d/docker.list
+deb [arch=amd64] https://apt.dockerproject.org/repo ubuntu-wily main
+
+sudo apt-get install linux-image-extra-$(uname -r)
+
+sudo apt-get install linux-image-generic-lts-trusty
+
+Create the docker group.
+
+$ sudo groupadd docker
+Add your user to docker group.
+
+$ sudo usermod -aG docker ubuntu
+
+Edit the /etc/default/grub file.
+
+Set the GRUB_CMDLINE_LINUX value as follows:
+
+GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1"
+$sudo update-grub
+
+Verify that UFW is installed and enabled.
+
+$ sudo ufw status
+Open the /etc/default/ufw file for editing.
+
+$ sudo nano /etc/default/ufw
+Set the DEFAULT_FORWARD_POLICY policy to:
+
+DEFAULT_FORWARD_POLICY="ACCEPT"
+Save and close the file.
+
+Reload UFW to use the new setting.
+
+$ sudo ufw reload
+Allow incoming connections on the Docker port.
+
+$ sudo ufw allow 2375/tcp
+
+
+Open the /etc/default/docker file for editing.
+
+$ sudo nano /etc/default/docker
+
+Add a setting for Docker.
+
+DOCKER_OPTS="--dns 8.8.8.8"
+
+Restart the Docker daemon.
+
+$ sudo restart docker
