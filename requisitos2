@@ -1,0 +1,55 @@
+#### Fonte https://docs.docker.com/engine/installation/linux/ubuntulinux/#/prerequisites ########
+$sudo apt-get update
+$sudo apt-get install apt-transport-https ca-certificates
+$sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+#Criando o repo docker
+$vim /etc/apt/sources.list.d/docker.list
+deb [arch=amd64] https://apt.dockerproject.org/repo ubuntu-xenial main
+
+#Criando grupo docker
+$sudo groupadd docker
+
+#Atrelando usuario ao grupo docker
+$sudo usermod -aG docker $USER
+
+#Instalando Docker 
+sudo apt-get install docker-engine
+
+#Ajuste de Memoria ubuntu
+$sudo vim /etc/default/grub
+
+Adicione os paramentros
+GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1 --dns 10.152.10.145 --dns 10.0.0.150"
+
+$sudo update-grub
+
+#Configuracao Placa de rede
+$sudo vim /etc/network/interfaces
+
+Adicionar
+dns=dnsmasq
+
+#Verify that UFW is installed and enabled.
+$sudo ufw status
+
+#Open the /etc/default/ufw file for editing.
+$sudo nano /etc/default/ufw
+
+Set the DEFAULT_FORWARD_POLICY policy to:
+DEFAULT_FORWARD_POLICY="ACCEPT"
+
+Save and close the file.
+
+#Reload UFW to use the new setting.
+$sudo ufw reload
+
+#Allow incoming connections on the Docker port.
+$sudo ufw allow 2375/tcp
+
+
+
+
+
+
+
