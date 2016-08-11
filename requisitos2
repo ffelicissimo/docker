@@ -24,12 +24,6 @@ GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1 --dns 10.152.10.145 --dns
 
 $sudo update-grub
 
-#Configuracao Placa de rede
-$sudo vim /etc/network/interfaces
-
-Adicionar
-dns=dnsmasq
-
 #Verify that UFW is installed and enabled.
 $sudo ufw status
 
